@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-__author__ = 'mwilliamson with LOTS of help from Zach and Piero'
+__author__ = """mwilliamson with LOTS of help from Zach and Piero"""
 
 import requests
 import turtle
@@ -34,7 +34,8 @@ def get_coordinates():
 
 
 def pass_Indy():
-    r = requests.get('http://api.open-notify.org/iss-pass.json?lat=40&lon=-86.1349') 
+    r = requests.get(
+        'http://api.open-notify.org/iss-pass.json?lat=40&lon=-86.1349')
 
     pass_over = r.json()
     pass_over = pass_over['response'][0]
@@ -59,7 +60,8 @@ def graphics_map(position, pass_time):
     Indy_pos.goto(-86.1349, 40.273502)
     message = turtle.Turtle()
     message.color('yellow')
-    message.write(pass_time, True, align='center',font=('Arial', 20, 'normal') )
+    message.write(
+        pass_time, True, align='center', font=('Arial', 20, 'normal'))
 
     screen.exitonclick()
 
@@ -74,7 +76,6 @@ def main():
     # collecting current ISS location
     coords = get_coordinates()
     graphics_map(coords, p)
-    
 
 
 if __name__ == '__main__':
